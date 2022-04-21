@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} {{pet.name}} {%endblock%}
+
+{% block content%}
+<h1 class="display-1 text-center pb-3" >{{pet.name}}</h1>
+
+<!-- Show List of the Pet on info the Screen -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+           <!-- Pet information -->
+                <p>SPECIES: {{pet.species}}</p>
+                <p>AGE: {{pet.age}}</p>
+                <p>NOTES: {{pet.notes}}</p>
+                
+                <!-- Handle availability of the pet.If is available Show on screen if not don't show -->
+                {% if pet.available == True %}
+                <h1 class="available display-5"><b>Available Now</b></h1>
+                {% endif %}
+
+        </div>
+<!-- If photo is available show it -->
+        <div class="edit-info">
+            {% if pet.photo_url%}
+            <img class="pet-info-img" src="{{pet.photo_url}}" alt="">
+
+           {% endif %}
+           <a class="btn justify-content-center btn-success btn-lg" href="/{{pet.id}}/edit">EDIT</a>
+           <a class="btn justify-content-center mt-2 btn-info btn-lg" href="/">GO BACK</a>
+        </div>
+           
+    </div>
+</div>
+
+{% endblock %}

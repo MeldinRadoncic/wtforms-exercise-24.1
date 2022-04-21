@@ -1,0 +1,51 @@
+body {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box; 
+    background:linear-gradient(75deg,#40DFEF,white);  
+}
+
+
+/* Show-pets home page */
+.pets-img {
+    width: 100px;
+    height: 100px;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    border-radius:100%;
+}
+
+p {
+    font-size: 1.5rem; 
+}
+
+.addPet {
+width: 70vw;
+}
+/* pet-info */
+
+.pet-info-img {
+    width: 400px;
+    height: 400px;
+    margin-top: 3rem;
+    border-radius: 100%;
+    margin-bottom: 2rem; 
+}
+
+.edit-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.available {
+    animation: available 1s ease-in-out infinite alternate;
+}
+
+@keyframes available {
+    0%{
+        transform:scale(.5)
+    }100%{
+        transform:rotate(1.2)
+    }
+    
+}

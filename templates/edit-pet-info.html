@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %} Edit {{pet.name}} {%endblock%}
+
+{% block content%}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+<h1 class="display-1 pb-5 text-center">Edit</h1>
+
+<!-- Handle edit_pet_form submission -->
+<form method="POST">
+    <!-- Include a hidden input in order to work -->
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <!-- loop through form and show it on screen -->
+        {% for field in form %}
+        <!-- Check if input_type is not hidden -->
+        {% if field.widget.input_type != "hidden" %}
+        <p>
+        {{field.label }}
+
+        {{field(class_='form-control')}}
+        
+            <!-- Print error for required inputs -->
+        {% for err in field.errors %}
+
+        <!-- Styling error messages -->
+        <small class="small-text text-danger">
+            {{err}}
+        </small>
+{% endfor %}
+    </p>
+    {% endif %}
+        {% endfor %}
+        <button type="submit" class="btn btn-lg btn-primary">SAVE</button>
+        <a href="/{{pet.id}}" class="btn btn-lg btn-info">GO BACK</a>
+    </div>
+    
+</form>
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}

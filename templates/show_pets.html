@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} Adoption Agency {%endblock%}
+
+{% block content%}
+
+<h1 class="display-1 text-center pb-3">Adoption Agency</h1>
+
+{% for p in pet  %}
+ <div class="container">
+<div class="row">
+    <div class="col-md-8">
+  
+    <h1 class="display-4"><a class="pets-names" href="/{{p.id}}">{{p.name}}</a></h1>
+
+    {% if p.photo_url %}
+        <img class="pets-img" src="{{p.photo_url}}" alt="">
+        {% else %}
+        <p>Photo Not Available</p>
+        {% endif %}
+  
+        <p><b>Species:</b> {{p.species}}</p>
+        <p><b>Age:</b> {{p.age}}</p>
+        <p><b>Notes:</b> {{p.notes}}</p>
+
+       {% endfor %}
+    </div> 
+</div>
+<a class="addPet btn btn-lg btn-success" href="/add">Add Pet</a>
+</div>
+
+
+    
+
+{% endblock %} -->
+
+
+
+
+
